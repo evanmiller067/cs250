@@ -32,9 +32,9 @@ bool conclusion(bool P, bool Q, bool R)
 	}
 }
 //bool to char converter
-char cc(bool P, bool Q, bool R)
+char cc(bool value)
 {
-	if(P || Q || R)
+	if(value)
 	{
 		return 'T';
 	}
@@ -51,8 +51,7 @@ void printer()//Print out truth table and updated bool values for prem/concl fun
 	
 	//super ugly code, I will convert to loops to reduce excess code
 	bool P = true,Q = true, R = true;
-	charConverter(P,Q,R);
-	cout << rowIndex << "       " << P << "       " << Q << "       " << R << "        " << premise(P,Q,R) << "       " << conclusion(P,Q,R) << endl;
+	cout << rowIndex << "       " << cc(P) << "       " << cc(Q) << "       " << cc(R) << "        " << cc(premise(P,Q,R)) << "       " << cc(conclusion(P,Q,R)) << endl;
 	if(premise(P,Q,R) && !conclusion(P,Q,R))
 	{
 		cout << " The argument is invalid in row " << rowIndex << endl;
@@ -64,7 +63,7 @@ void printer()//Print out truth table and updated bool values for prem/concl fun
 	
 	P = true,Q = true, R = false;
 	rowIndex = 1;	
-	cout << rowIndex << "       " << P << "       " << Q << "       " << R << "        " << premise(P,Q,R) << "       " << conclusion(P,Q,R) << endl;
+	cout << rowIndex << "       " << cc(P) << "       " << cc(Q) << "       " << cc(R) << "        " << cc(premise(P,Q,R)) << "       " << cc(conclusion(P,Q,R)) << endl;	
 	if(premise(P,Q,R) && !conclusion(P,Q,R))
 	{
 		cout << " The argument is invalid in row " << rowIndex << endl;
@@ -76,7 +75,7 @@ void printer()//Print out truth table and updated bool values for prem/concl fun
 	
 	P = true,Q = false, R = true;
 	rowIndex = 2;	
-	cout << rowIndex << "       " << P << "       " << Q << "       " << R << "        " << premise(P,Q,R) << "       " << conclusion(P,Q,R) << endl;
+	cout << rowIndex << "       " << cc(P) << "       " << cc(Q) << "       " << cc(R) << "        " << cc(premise(P,Q,R)) << "       " << cc(conclusion(P,Q,R)) << endl;
 	if(premise(P,Q,R) && !conclusion(P,Q,R))
 	{
 		cout << " The argument is invalid in row " << rowIndex << endl;
@@ -88,7 +87,7 @@ void printer()//Print out truth table and updated bool values for prem/concl fun
 	
 	P = true,Q = false, R = false;
 	rowIndex = 3;	
-	cout << rowIndex << "       " << P << "       " << Q << "       " << R << "        " << premise(P,Q,R) << "       " << conclusion(P,Q,R) << endl;
+	cout << rowIndex << "       " << cc(P) << "       " << cc(Q) << "       " << cc(R) << "        " << cc(premise(P,Q,R)) << "       " << cc(conclusion(P,Q,R)) << endl;	
 	if(premise(P,Q,R) && !conclusion(P,Q,R))
 	{
 		cout << " The argument is invalid in row " << rowIndex << endl;
@@ -100,7 +99,7 @@ void printer()//Print out truth table and updated bool values for prem/concl fun
 	
 	P = false,Q = true, R = true;
 	rowIndex = 4;	
-	cout << rowIndex << "       " << P << "       " << Q << "       " << R << "        " << premise(P,Q,R) << "       " << conclusion(P,Q,R) << endl;
+	cout << rowIndex << "       " << cc(P) << "       " << cc(Q) << "       " << cc(R) << "        " << cc(premise(P,Q,R)) << "       " << cc(conclusion(P,Q,R)) << endl;	
 	if(premise(P,Q,R) && !conclusion(P,Q,R))
 	{
 		cout << " The argument is invalid in row " << rowIndex << endl;
@@ -112,7 +111,7 @@ void printer()//Print out truth table and updated bool values for prem/concl fun
 	
 	P = false,Q = true, R = false;
 	rowIndex = 5;	
-	cout << rowIndex << "       " << P << "       " << Q << "       " << R << "        " << premise(P,Q,R) << "       " << conclusion(P,Q,R) << endl;
+	cout << rowIndex << "       " << cc(P) << "       " << cc(Q) << "       " << cc(R) << "        " << cc(premise(P,Q,R)) << "       " << cc(conclusion(P,Q,R)) << endl;	
 	if(premise(P,Q,R) && !conclusion(P,Q,R))
 	{
 		cout << " The argument is invalid in row " << rowIndex << endl;
@@ -124,7 +123,7 @@ void printer()//Print out truth table and updated bool values for prem/concl fun
 	
 	P = false,Q = false, R = true;
 	rowIndex = 6;	
-	cout << rowIndex << "       " << P << "       " << Q << "       " << R << "        " << premise(P,Q,R) << "       " << conclusion(P,Q,R) << endl;
+	cout << rowIndex << "       " << cc(P) << "       " << cc(Q) << "       " << cc(R) << "        " << cc(premise(P,Q,R)) << "       " << cc(conclusion(P,Q,R)) << endl;	
 	if(premise(P,Q,R) && !conclusion(P,Q,R))
 	{
 		cout << " The argument is invalid in row " << rowIndex << endl;
@@ -136,7 +135,7 @@ void printer()//Print out truth table and updated bool values for prem/concl fun
 	
 	P = false,Q = false, R = false;			
 	rowIndex = 7;	
-	cout << rowIndex << "       " << P << "       " << Q << "       " << R << "        " << premise(P,Q,R) << "       " << conclusion(P,Q,R) << endl;
+	cout << rowIndex << "       " << cc(P) << "       " << cc(Q) << "       " << cc(R) << "        " << cc(premise(P,Q,R)) << "       " << cc(conclusion(P,Q,R)) << endl;
 	
 	if(validTest == 7)
 	{
