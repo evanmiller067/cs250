@@ -1,0 +1,23 @@
+This assignment is designed to introduce you to number theory calculations in C++, 
+specifically large numbers, 100 to 200 decimal digits.  Standard C++ data types and 
+arithmetic operations do not support these large integer values.  In order to 
+complete this assignment, you will need to use "bignum" library with your C++ program.   
+We will be using the GNU GMP library for this. 
+
+Your task is to create a program that implements the division algorithm, 
+algorithm 4.10.1 (algorithm 4.8.1 in the 4th edition ) and the Euclidean algorithm, 
+algorithm 4.10.2 (algorithm 4.8.2, in the 4th edition).  We will cover these algorithms 
+next week but you can start by becoming familiar with the GMP library.
+
+Instructions: Given two integers x and y with the requirements that 1 <= x < 1050 and 1 <= y < x, 
+Create a C++ program that prompts the user for the two values, and then displays the following:
+
+The greatest common divisor of x and y, i.e. gcd(x,y), calculated using the Euclidean algorithm (4.8.2)
+The quotient q and remainder r that satisfy the equation x = yq + r, calculated using the Division algorithm.   
+(Note that 0 ≤ r < y by the definition of "remainder".  )
+Your code must implement and use the algorithms given in the textbook. 
+You may use functions provided by System::Numerics or GNU GMP to test and verify your answers, 
+but the algorithms must be implemented and used in your code, and not have your program simply 
+call a built-in library function to get the answer.
+
+You will need to compile with the following two options:  -lgmpxx  -lgmp

@@ -45,7 +45,7 @@ string compute(string A, string B)
 
 		if((i + 1) % 4 == 0)
 		{
-			result.insert(0, " ");
+			result.insert(0,"");
 		}
 		result.insert(0, std::to_string(sum));
 		c = carry;
@@ -67,8 +67,10 @@ int main()
 		string inputA, inputB;
 		cout << "Input one: " << flush;
 		cin >> inputA;
+
 		cout << "\nInput Two: " << flush;
 		cin >> inputB;
+
 		cout << "The numbers to be added are " << inputA << " and " << inputB << endl;
 		cout << compute(inputA, inputB) << endl;
 	}
