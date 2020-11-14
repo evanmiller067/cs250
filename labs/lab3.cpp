@@ -4,29 +4,26 @@
 
 using namespace std;
 
-mpz_t gcd(mpz_t, mpz_t);
-
 int main()
 {
 	char num1[40];
 	char num2[40];
 	
-	cout << "Evan Miller \nCS250 \nLab 3" << endl;
+	cout << "\nEvan Miller \nCS250 \nLab 3" << endl;
 
 	// get num
-	cout << "Input your first big number, please: ";
+	cout << "\nInput your first big number, please: ";
 	cin >> num1;
 	cout << "\nInput your second big number, please: ";
 	cin >> num2;
 	cout << endl;
 
 	//declare and init big nums
-	mpz_t n1, n2, q, r, gcd();
+	mpz_t n1, n2, q, r;
 	mpz_init(n1);
 	mpz_init(n2);
 	mpz_init(q);
 	mpz_init(r);
-	mpz_init(gcd());
 
 	//assign values from strings
 	mpz_set_str(n1,num1,10);
@@ -51,23 +48,59 @@ int main()
 	cout << "\nRemainder: ";
 	mpz_out_str(stdout,10,r);
 	cout << endl;
-	cout << "GCD: ";
-	mpz_out_str(stdout, 10, gcd(*n1,*n2));
-	cout << endl;
 
+//------------------------------
+//Using mpz function to test
+	cout << "GCD using built-in function: ";
+	mpz_t ans;
+	mpz_init(ans);
+	mpz_gcd(ans, n1, n2);
+	mpz_out_str(stdout, 10, ans);
+	cout << endl;
+//------------------------------
+
+	cout << "\nGCD Using Euclidean Algorithm: " << endl;
+	mpz_t dividen, divisor, gcdResult;
+	mpz_init(dividen);
+	mpz_init(divisor);
+	mpz_init(gcdResult);
+
+	if(n1 > n2)
+	{
+		mpz_set(divisor, n2);
+		mpz_set(dividen, n1);
+	}
+	else
+	{
+		mpz_set(divisor, n1);
+		mpz_set(dividen, n2);
+	}
+	mpz_fdiv_q(q, dividen, divisor);
+	mpz_mod(r, dividen, divisor);
+	mpz_set(gcdResult,divisor);
+	while(r > 0)
+	{
+		mpz_set(dividen,divisor);
+		mpz_set(divisor,r);
+		mpz_fdiv_q(q, dividen, divisor);
+		mpz_mod(r, dividen, divisor);
+		if(r == 0)
+		{
+			mpz_set(gcdResult,divisor);
+		}
+	}
+	mpz_out_str(stdout, 10, gcdResult);
+	
 	//clear big nums
 	mpz_clear(n1);
 	mpz_clear(n2);
 	mpz_clear(q);
 	mpz_clear(r);
-
+	mpz_clear(ans);
+	mpz_clear(dividen);
+	mpz_clear(divisor);
+	mpz_clear(gcdResult);
+	
 	return 0;
 }
-mpz_t gcd(mpz_t a,mpz_t b)
-{
-	if(b == 0)
-	{
-		return *a;
-	}
-	return gcd(b, mpz_mod(mpz_t r, *a, *b);
-}
+
