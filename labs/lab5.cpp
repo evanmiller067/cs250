@@ -1,3 +1,9 @@
+/*
+NAME: Evan Miller
+ASSIGNMENT: Lab 5
+SOURCES: Class textbook, cplusplus.com
+*/
+
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;

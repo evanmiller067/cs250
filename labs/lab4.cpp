@@ -1,3 +1,9 @@
+/*
+NAME: Evan Miller
+ASSIGNMENT: Lab 4
+SOURCES: geeksforgeeks.org
+*/
+
 #include <iostream>
 
 using namespace std;
